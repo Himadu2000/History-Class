@@ -1,17 +1,6 @@
 import React from "react"
 
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardHeader,
-  MDBInput,
-  MDBBtn,
-  MDBTable,
-  MDBTableBody,
-  MDBTableHead,
-} from "mdbreact"
-
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -43,24 +32,23 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <ul></ul>
       <table>
-        <tr>
-          <th>Paper</th>
-          <th>Description</th>
-          <th>Download</th>
-        </tr>
-        {Items.map(value => (
+        <tbody>
           <tr>
-            <td>{value.listNumber}</td>
-            <td>{value.description}</td>
-            <td>
-              <a href={value.downloadFile.url} download>
-                Download
-              </a>
-            </td>
+            <th>Paper</th>
+            <th>Description</th>
+            <th>Download</th>
           </tr>
-        ))}
+          {Items.map(value => (
+            <tr key={value.flamelink_id}>
+              <td>{value.listNumber}</td>
+              <td>{value.description}</td>
+              <td>
+                <a href={value.downloadFile.map(v => v.url)}>Open</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </Layout>
   )
