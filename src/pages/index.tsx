@@ -11,118 +11,57 @@ import {
   MDBTableHead,
 } from "mdbreact"
 
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import { useStaticQuery, graphql } from "gatsby"
+import "../components/pages/home/index.sass"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query GetAllPapers {
       allFlamelinkPapersContent(sort: { fields: listNumber, order: ASC }) {
-        edges {
-          node {
-            description
-            category {
-              grade
-              paper
-              term
-            }
-            number
-            downloadFile {
-              url
-            }
+        nodes {
+          flamelink_id
+          listNumber
+          description
+          category {
+            term
+            paper
+            grade
+          }
+          downloadFile {
+            url
           }
         }
       }
     }
   `)
-  const Items = data.allFlamelinkPapersContent.edges
-
-  const data_columns = {
-    columns: [
-      {
-        label: "ID",
-        field: "id",
-        sort: "asc",
-      },
-      {
-        label: "Grade",
-        field: "grade",
-        sort: "asc",
-      },
-      {
-        label: "Term",
-        field: "term",
-        sort: "asc",
-      },
-      {
-        label: "Paper",
-        field: "paper",
-        sort: "asc",
-      },
-      {
-        label: "Description",
-        field: "description",
-        sort: "asc",
-      },
-      {
-        label: "Preview",
-        field: "preview",
-        sort: "asc",
-      },
-      {
-        label: "Download",
-        field: "download",
-        sort: "asc",
-      },
-    ],
-  }
-  const data_rows = Items.map(value => ({
-    id: value.node.number,
-    grade: value.node.category.grade,
-    term: value.node.category.term,
-    paper: value.node.category.paper,
-    description: value.node.description,
-    preview: (
-      <MDBBtn
-        label="Download"
-        href={value.node.downloadFile.url}
-        id="checkbox5"
-        size="sm"
-      >
-        Preview
-      </MDBBtn>
-    ),
-
-    download: (
-      <MDBBtn
-        label="Download"
-        download={value.node.downloadFile.url}
-        id="checkbox5"
-        size="sm"
-      >
-        Download
-      </MDBBtn>
-    ),
-  }))
+  const Items = data.allFlamelinkPapersContent.nodes
 
   return (
     <Layout>
       <SEO title="Home" />
-      <MDBCard narrow>
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-          <p className="white-text mx-3">Papers</p>
-        </MDBCardHeader>
-        <MDBCardBody cascade>
-          <MDBTable btn fixed>
-            <MDBTableHead columns={data_columns.columns} />
-            <MDBTableBody rows={data_rows} />
-          </MDBTable>
-        </MDBCardBody>
-      </MDBCard>
+      <ul></ul>
+      <table>
+        <tr>
+          <th>Paper</th>
+          <th>Description</th>
+          <th>Download</th>
+        </tr>
+        {Items.map(value => (
+          <tr>
+            <td>{value.listNumber}</td>
+            <td>{value.description}</td>
+            <td>
+              <a href={value.downloadFile.url} download>
+                Download
+              </a>
+            </td>
+          </tr>
+        ))}
+      </table>
     </Layout>
   )
 }

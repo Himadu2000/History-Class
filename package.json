@@ -36,7 +36,7 @@
   "keywords": [
     "history-class srilanka"
   ],
-  "license": "MIT",
+  "license": "Unlicense",
   "scripts": {
     "dev": "cross-env gatsby develop",
     "dev-build": "cross-env gatsby build",
