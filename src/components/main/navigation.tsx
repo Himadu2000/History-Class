@@ -6,8 +6,6 @@ import {
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
   MDBDropdown,
@@ -15,7 +13,6 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
   MDBContainer,
-  MDBIcon,
 } from "mdbreact"
 import "./navigation.sass"
 
@@ -54,8 +51,8 @@ const NavbarPage = () => {
                   />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
-                  <MDBDropdownItem href="#!">My account</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Log In</MDBDropdownItem>
+                  <MDBDropdownItem href="/user">My account</MDBDropdownItem>
+                  <MDBDropdownItem href="/login">Log In</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </>
