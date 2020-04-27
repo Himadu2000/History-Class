@@ -12,7 +12,6 @@ import PropTypes from "prop-types"
 import Navigation from "./main/navigation"
 import Footer from "./main/footer"
 
-import "./main/style.sass"
 import "./main/style.css"
 
 const Layout = ({ children }) => {
