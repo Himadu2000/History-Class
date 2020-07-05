@@ -10,6 +10,7 @@ module.exports = {
     title: `History Class`,
     description: `Sri Lankan History To Learn.`,
     author: `@gatsbyjs`,
+    siteUrl: `https://historyclass.lk/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
