@@ -7712,7 +7712,7 @@ gatsby-plugin-theme-ui@^0.2.43:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.53.tgz#57a52339e50ede7ef4df0b1b5593d360b56b597d"
   integrity sha512-AlQC+uC9lvrP3LlGsLe0f0azp7B5c49qWl4b3FDj8xbravBoqFmJT7XrNTpYYbxnCnx/K1v0QtwP8qindw0S2g==
 
-gatsby-plugin-typescript@^2.1.19, gatsby-plugin-typescript@^2.4.0:
+gatsby-plugin-typescript@^2.1.19:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.4.0.tgz#4ef561acb28ae980e96125f70ae06954fa5de646"
   integrity sha512-PAP6/a83yK7HRv5o0paY000HYL7O4vS0x38t1gxP4tsDpd9L35vNeHeZfklifCE67n9PsElgfSmtCL2Za0M4KQ==
