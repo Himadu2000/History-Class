@@ -1,13 +1,12 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Firebase CI
 
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
   build:
@@ -15,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x,14.x]
+        node-version: [12.x, 14.x]
 
     env:
       FIREBASE_CONFIG_PRIVATE_KEY: ${{ secrets.FIREBASE_CONFIG_PRIVATE_KEY }}
@@ -29,6 +28,13 @@ jobs:
       #- run: npm ci
       - run: yarn
       - run: npx gatsby build #--if-present
-    #- run: npm run test
-    #  env:
-    #    CI: true
+      #- run: npm run test
+      #  env:
+      #    CI: true
+      - name: Firebase GitHub Action
+        uses: pizzafox/firebase-action@1.0.7
+        env:
+          PROJECT_ID: "history-class"
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        with:
+          args: deploy

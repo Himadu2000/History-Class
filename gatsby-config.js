@@ -1,7 +1,7 @@
 if (!process.env.GITHUB_ACTION) {
   require("dotenv").config()
 }
-const parseNewLines = function(key) {
+const parseNewLines = function (key) {
   return typeof key === "string" ? key.replace(/\\n/g, "\n") : key
 }
 const privateKey = parseNewLines(process.env.FIREBASE_CONFIG_PRIVATE_KEY)
@@ -51,15 +51,6 @@ module.exports = {
         color: `tomato`,
         // Disable the loading spinner.
         showSpinner: true,
-      },
-    },
-    // typescript
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `React`, // was jsx defaults to "React"
-        allExtensions: true, // defaults to false
       },
     },
     // firebase theme

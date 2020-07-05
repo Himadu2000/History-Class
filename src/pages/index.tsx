@@ -1,15 +1,15 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-
-import { useStaticQuery, graphql } from "gatsby"
-
 import Layout from "../components/layout"
+import "../components/pages/home/index.sass"
 import SEO from "../components/seo"
 
-import "../components/pages/home/index.sass"
+
+
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    query GetAllPapers {
+    query {
       allFlamelinkPapersContent(sort: { fields: listNumber, order: ASC }) {
         nodes {
           flamelink_id
