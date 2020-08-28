@@ -1,34 +1,35 @@
-import React, { useState } from "react"
-
 import { Link } from "gatsby"
-
 import {
+  MDBCollapse,
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
-  MDBCollapse,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBContainer,
+  MDBNavItem,
 } from "mdbreact"
-import "./navigation.sass"
+import React, { useState } from "react"
 
-const NavbarPage = () => {
-  const [collapseID, setCollapseID] = useState(false)
-  const toggleCollapse = collapseID => () => setCollapseID(!collapseID)
+const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
-    <MDBContainer className="navigationContainer">
-      <MDBNavbar color="secondary-color" dark expand="md">
-        <MDBNavbarBrand>
-          <strong className="white-text">History Class</strong>
-        </MDBNavbarBrand>
-        <MDBNavbarToggler onClick={toggleCollapse("navbarCollapse3")} />
-        <MDBCollapse id="navbarCollapse3" isOpen={collapseID} navbar>
-          <MDBNavbarNav left>
+    <MDBNavbar color="blue" dark expand="md">
+      <MDBNavbarBrand>
+        <strong className="white-text">
+          <Link to="/" style={{ color: "white" }}>
+            History Class
+          </Link>
+        </strong>
+      </MDBNavbarBrand>
+      <MDBNavbarToggler onClick={toggleCollapse} />
+      <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
+        <MDBNavbarNav left></MDBNavbarNav>
+        <MDBNavbarNav right>
+          <MDBNavItem>
             <Link to="/" className="item">
               Home
             </Link>
@@ -38,29 +39,11 @@ const NavbarPage = () => {
             <Link to="/login" className="item">
               Log In
             </Link>
-          </MDBNavbarNav>
-          <MDBNavbarNav right>
-            <>
-              <MDBDropdown>
-                <MDBDropdownToggle className="dopdown-toggle" nav>
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
-                    className="rounded-circle z-depth-0"
-                    style={{ height: "35px", padding: 0 }}
-                    alt="user-icon"
-                  />
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default" right>
-                  <MDBDropdownItem href="/user">My account</MDBDropdownItem>
-                  <MDBDropdownItem href="/login">Log In</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBNavbar>
-    </MDBContainer>
+          </MDBNavItem>
+        </MDBNavbarNav>
+      </MDBCollapse>
+    </MDBNavbar>
   )
 }
 
-export default NavbarPage
+export default NavBar
