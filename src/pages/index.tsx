@@ -4,9 +4,6 @@ import Layout from "../components/layout"
 import "../components/pages/home/index.sass"
 import SEO from "../components/seo"
 
-
-
-
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {

@@ -19,24 +19,27 @@ const NavBar = () => {
   return (
     <MDBNavbar color="blue" dark expand="md">
       <MDBNavbarBrand>
-        <strong className="white-text">
-          <Link to="/" style={{ color: "white" }}>
+        <strong>
+          <Link to="/" className="white-text">
             History Class
           </Link>
         </strong>
       </MDBNavbarBrand>
       <MDBNavbarToggler onClick={toggleCollapse} />
       <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
-        <MDBNavbarNav left></MDBNavbarNav>
         <MDBNavbarNav right>
           <MDBNavItem>
-            <Link to="/" className="item">
+            <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/gallery" className="item">
+          </MDBNavItem>
+          <MDBNavItem>
+            <Link to="/gallery" className="nav-link">
               Gallery
             </Link>
-            <Link to="/login" className="item">
+          </MDBNavItem>
+          <MDBNavItem>
+            <Link to="/login" className="nav-link">
               Log In
             </Link>
           </MDBNavItem>
