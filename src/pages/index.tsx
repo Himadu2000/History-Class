@@ -1,54 +1,59 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
+import { MDBCard, MDBCardTitle, MDBIcon } from "mdbreact"
 import React from "react"
 import Layout from "../components/layout"
-import "../components/pages/home/index.sass"
-import SEO from "../components/seo"
+import "../components/pages/home/grid.sass"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFlamelinkPapersContent(sort: { fields: listNumber, order: ASC }) {
-        nodes {
-          flamelink_id
-          listNumber
-          description
-          category {
-            term
-            paper
-            grade
-          }
-          downloadFile {
-            url
-          }
-        }
-      }
-    }
-  `)
-  const Items = data.allFlamelinkPapersContent.nodes
+const Template = ({ title, image }) => (
+  <MDBCard
+    className="card-image"
+    style={{
+      display: "block",
+      margin: "1em",
+      width: "14em",
+      marginLeft: "auto",
+      marginRight: "auto",
+      backgroundImage: `url(${image})`,
+    }}
+  >
+    <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+      <div>
+        <h5 className="pink-text">
+          <MDBIcon icon="chart-bar" /> History
+        </h5>
+        <MDBCardTitle tag="h3" className="pt-2">
+          <strong>{title}</strong>
+        </MDBCardTitle>
+      </div>
+    </div>
+  </MDBCard>
+)
 
-  return (
+const MDBURL =
+  "https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg"
+
+const Home = () => (
+  <>
     <Layout>
-      <SEO title="Home" />
-      <table>
-        <tbody>
-          <tr>
-            <th>Paper</th>
-            <th>Description</th>
-            <th>Download</th>
-          </tr>
-          {Items.map(value => (
-            <tr key={value.flamelink_id}>
-              <td>{value.listNumber}</td>
-              <td>{value.description}</td>
-              <td>
-                <a href={value.downloadFile.map(v => v.url)}>Open</a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <section className="main">
+        <Link to="/grade 10">
+          <Template title="Grade 10" image={MDBURL} />
+        </Link>
+        <Link to="/grade 11">
+          <Template title="Grade 11" image={MDBURL} />
+        </Link>
+        <Link to="term test">
+          <Template title="Term Test" image={MDBURL} />
+        </Link>
+        <Link to="map marking">
+          <Template title="Map Marking" image={MDBURL} />
+        </Link>
+        <Link to="picture description">
+          <Template title="Picture Description" image={MDBURL} />
+        </Link>
+      </section>
     </Layout>
-  )
-}
+  </>
+)
 
-export default IndexPage
+export default Home
