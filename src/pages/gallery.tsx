@@ -22,7 +22,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Gallery" />
-      <MDBLightbox md="4" images={heading} noMargins />
+      {typeof window !== "undefined" ? (
+        <MDBLightbox md="4" images={heading} noMargins />
+      ) : null}
     </Layout>
   )
 }
