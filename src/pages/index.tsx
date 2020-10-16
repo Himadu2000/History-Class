@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import { MDBCard, MDBCardTitle, MDBIcon } from "mdbreact"
 import React from "react"
 import Layout from "../components/layout"
+import BookOrder from "../components/pages/home/bookOrder"
 import "../components/pages/home/grid.sass"
 
 const Template = ({ title, image }) => (
@@ -52,6 +53,8 @@ const Home = () => (
           <Template title="Picture Description" image={MDBURL} />
         </Link>
       </section>
+      <Link to="/comment">Please add a comment</Link>
+      <BookOrder />
     </Layout>
   </>
 )
