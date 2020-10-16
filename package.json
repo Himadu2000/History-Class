@@ -33,6 +33,7 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "firebase-tools": "^8.10.0",

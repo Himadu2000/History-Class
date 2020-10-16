@@ -91,13 +91,15 @@ const Footer = () => (
             style={{ width: "60px" }}
           />
           <p>
-            <i className="fa fa-home mr-3" /> Colombo, Example 01022, Sri Lanka
+            <i className="fa fa-home mr-3" />
+            Colombo, Example 01022, Sri Lanka
           </p>
           <p>
-            <i className="fa fa-envelope mr-3" /> gampolagelalith@gmail.com
+            <i className="fa fa-envelope mr-3" />
+            gampolagelalith@gmail.com
           </p>
           <p>
-            <i className="fa fa-phone mr-3" /> + 94 773 434 354
+            <i className="fa fa-phone mr-3" />+ 94 773 434 354
           </p>
         </MDBCol>
       </MDBRow>

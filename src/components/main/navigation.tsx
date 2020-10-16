@@ -8,6 +8,7 @@ import {
   MDBNavItem,
 } from "mdbreact"
 import React, { useState } from "react"
+import UserIcon from "./components/userIcon"
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,9 +40,7 @@ const NavBar = () => {
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link to="/login" className="nav-link">
-              Log In
-            </Link>
+            <UserIcon />
           </MDBNavItem>
         </MDBNavbarNav>
       </MDBCollapse>
