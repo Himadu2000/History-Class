@@ -1,7 +1,7 @@
 type Comments @collection(name: "comments") {
   uid: String!
   image: String
-  time: Time
+  time: Int
   name: String
   comment: String!
 }

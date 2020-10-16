@@ -1,6 +1,10 @@
-import { Client } from "faunadb"
+import { Client, query } from "faunadb"
 
-const client = new Client({ secret: process.env.FAUNADB_KEY })
+const adminClient = new Client({
+  secret: "fnAD4Ri0d2ACBr2A0UUmpsf7c_uUwxjK44APAbeg",
+})
+
+export const q = query
 
 export const createComment = async (
   uid: string,
@@ -8,12 +12,10 @@ export const createComment = async (
   name: string,
   comment: string
 ) =>
-  await client.query((q: any) => {
+  await adminClient.query(
     q.Create(q.Collection("comments"), {
       data: { uid, image, time: Date.now(), name, comment },
     })
+  )
 
-    console.info("Comment has been added!")
-  })
-
-export default client.query
+export default adminClient.query
