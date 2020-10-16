@@ -1,22 +1,26 @@
-import axios from "axios"
 import { Link } from "gatsby"
 import { useAuth } from "gatsby-theme-firebase"
-import { MDBBtn, MDBInput } from "mdbreact"
+import { MDBBtn, MDBInput, MDBSpinner } from "mdbreact"
 import React, { useState } from "react"
+import Modal from "../comments/modal"
+import { createComment } from "./faunaQuery"
 
 const AddComment = () => {
   const [comment, setComment] = useState("")
+  const [modal, setModal] = useState(false)
+
   const { isLoading, isLoggedIn, profile } = useAuth()
 
   async function addComment() {
     const { uid, displayName, photoURL } = profile
-    axios("")
+    await createComment(uid, photoURL, displayName, comment)
   }
 
   if (isLoading) {
     if (isLoggedIn) {
       return (
         <>
+          <Modal modal={modal} setModal={setModal} />
           <MDBInput
             type="textarea"
             label="You can use html"
@@ -31,7 +35,7 @@ const AddComment = () => {
       return <Link to="/login">Log in to add a comment!</Link>
     }
   } else {
-    return <p>Loading...</p>
+    return <MDBSpinner multicolor />
   }
 }
 

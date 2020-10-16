@@ -1,9 +1,19 @@
+import { graphql } from "gatsby"
 import { MDBLightbox } from "mdbreact"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => {
+interface props {
+  data: {
+    flamelinkGalleryContent: {
+      url: string
+      alt: string
+    }[]
+  }
+}
+
+const IndexPage = ({ data }: props) => {
   const [heading, setHeading] = useState<any>([
     {
       src:
@@ -18,6 +28,17 @@ const IndexPage = () => {
         "https://firebasestorage.googleapis.com/v0/b/history-class.appspot.com/o/flamelink%2Fmedia%2FsooxC3njuiQlSR0ooaPo_photo3.webp?alt=media&token=fecffdef-2f6a-488b-a921-29a11419a41b",
     },
   ])
+
+  useEffect(() => {
+    const items = []
+    console.log(data.flamelinkGalleryContent)
+    // data.flamelinkGalleryContent.map(item => {
+    //   items.push({ src: item.url })
+    // })
+    // setHeading()
+    console.log(items)
+  }, [])
+
   return (
     <Layout>
       <SEO title="Gallery" />
@@ -27,5 +48,14 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    flamelinkGalleryContent {
+      url
+      # alt
+    }
+  }
+`
 
 export default IndexPage

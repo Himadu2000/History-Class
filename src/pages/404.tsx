@@ -1,16 +1,13 @@
-import React from "react"
-
-import {
-  MDBJumbotron,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCardTitle,
-  MDBIcon,
-} from "mdbreact"
-
 import { Link } from "gatsby"
-
+import {
+  MDBCardTitle,
+  MDBCol,
+  MDBContainer,
+  MDBIcon,
+  MDBJumbotron,
+  MDBRow,
+} from "mdbreact"
+import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
