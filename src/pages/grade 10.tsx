@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query Grade10 {
     allFlamelinkPapersContent(
       sort: { fields: listNumber, order: ASC }
       filter: {}

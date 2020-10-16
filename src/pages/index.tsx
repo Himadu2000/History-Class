@@ -53,7 +53,7 @@ const Home = () => (
           <Template title="Picture Description" image={MDBURL} />
         </Link>
       </section>
-      <Link to="/comment">Please add a comment</Link>
+      <Link to="/comments">Please add a comment</Link>
       <BookOrder />
     </Layout>
   </>

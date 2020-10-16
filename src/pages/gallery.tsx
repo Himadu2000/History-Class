@@ -1,4 +1,3 @@
-import "mdbreact"
 import { MDBLightbox } from "mdbreact"
 import React, { useState } from "react"
 import Layout from "../components/layout"

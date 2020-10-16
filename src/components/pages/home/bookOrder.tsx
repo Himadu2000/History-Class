@@ -21,7 +21,6 @@ const FormPage = () => {
         }
         `
 
-    event.preventDefault()
     try {
       const response = await axios({
         method: "POST",

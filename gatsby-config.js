@@ -54,6 +54,18 @@ module.exports = {
         showSpinner: true,
       },
     },
+    // FaunaDB Connection
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Fauna",
+        fieldName: "fauna",
+        url: "https://graphql.fauna.com/graphql",
+        headers: {
+          Authorization: `Bearer ${process.env.FAUNADB_KEY}`,
+        },
+      },
+    },
     // firebase theme
     {
       resolve: "gatsby-theme-firebase",

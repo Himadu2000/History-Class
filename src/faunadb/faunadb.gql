@@ -1,0 +1,11 @@
+type Comments @collection(name: "comments") {
+  uid: String!
+  image: String
+  time: Time
+  name: String
+  comment: String!
+}
+
+type Query {
+  allComments: [Comments!]! @index(name: "all_comments")
+}
