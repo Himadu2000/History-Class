@@ -33,11 +33,16 @@ const FormPage = () => {
           Accept: "application/json",
         },
       })
-      if (response.status == 200) {
-        console.info(response.data)
-        alert("Message Sent. Thank you for using historyclass.lk")
+
+      if (phone !== "" && address !== "") {
+        if (response.status == 200) {
+          console.info(response.data)
+          alert("Message Sent. Thank you for using historyclass.lk")
+        } else {
+          alert("Message failed to send. (Sorry for inconvenience)")
+        }
       } else {
-        alert("Message failed to send. (Sorry for inconvenience)")
+        alert("Please fill in the form!")
       }
     } catch (error) {
       console.error(error)
