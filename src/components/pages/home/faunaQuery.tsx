@@ -14,7 +14,7 @@ export const createComment = async (
 ) =>
   await adminClient.query(
     q.Create(q.Collection("comments"), {
-      data: { uid, image, time: Date.now(), name, comment },
+      data: { uid, image, time: new Date(), name, comment },
     })
   )
 
