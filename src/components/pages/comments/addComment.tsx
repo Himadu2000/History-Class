@@ -32,7 +32,7 @@ const AddComment = () => {
         </>
       )
     } else {
-      return <Link to="/login">Log in to add a comment!</Link>
+      return <Link to="/user/login">Log in to add a comment!</Link>
     }
   } else {
     return <MDBSpinner multicolor />

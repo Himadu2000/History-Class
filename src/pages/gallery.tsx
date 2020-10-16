@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 interface props {
   data: {
     flamelinkGalleryContent: {
-      url: string
+      src: string
       alt: string
     }[]
   }
@@ -52,7 +52,7 @@ const IndexPage = ({ data }: props) => {
 export const query = graphql`
   {
     flamelinkGalleryContent {
-      url
+      src
       # alt
     }
   }
