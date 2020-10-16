@@ -40,6 +40,11 @@ const NavBar = () => {
             </Link>
           </MDBNavItem>
           <MDBNavItem>
+            <Link to="/comments" className="nav-link">
+              Comments
+            </Link>
+          </MDBNavItem>
+          <MDBNavItem>
             <UserIcon />
           </MDBNavItem>
         </MDBNavbarNav>

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { compress } from "compress-tag"
 import { FormEvent } from "react"
+import ViberRequest from "./viberSendMessage"
 
 async function formHandle(event: FormEvent, phone: string, address: string) {
   event.preventDefault()
@@ -33,6 +34,7 @@ async function formHandle(event: FormEvent, phone: string, address: string) {
 
       if (response.status == 200) {
         console.info(response.data)
+        await ViberRequest(phone, address)
         alert("Message Sent. Thank you for using historyclass.lk")
       } else {
         alert("Message failed to send. (Sorry for inconvenience)")
