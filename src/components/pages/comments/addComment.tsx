@@ -2,8 +2,8 @@ import { Link } from "gatsby"
 import { useAuth } from "gatsby-theme-firebase"
 import { MDBBtn, MDBInput, MDBSpinner } from "mdbreact"
 import React, { useState } from "react"
-import Modal from "../comments/modal"
-import { createComment } from "./faunaQuery"
+import { createComment } from "../home/faunaQuery"
+import Modal from "./modal"
 
 const AddComment = () => {
   const [comment, setComment] = useState("")

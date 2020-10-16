@@ -46,13 +46,13 @@ const FormPage = () => {
   }
 
   return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <form>
-            <p className="h5 text-center mb-4">Book Order</p>
-            <p>Order our new book</p>
-            <div className="grey-text">
+    <>
+      <form className="black-text" onSubmit={() => formHandle}>
+        <p className="h5 text-center mb-4">Book Order</p>
+        <p>Order our new book</p>
+        <MDBContainer fluid>
+          <MDBRow>
+            <MDBCol size="4">
               <MDBInput
                 label="Type your phone number"
                 onChange={event => setPhone(event.currentTarget.value)}
@@ -62,6 +62,8 @@ const FormPage = () => {
                 type="text"
                 validate
               />
+            </MDBCol>
+            <MDBCol>
               <MDBInput
                 label="Type your address"
                 onChange={event => setAddress(event.currentTarget.value)}
@@ -70,14 +72,15 @@ const FormPage = () => {
                 type="text"
                 validate
               />
-            </div>
-            <div className="text-center">
-              <MDBBtn onClick={() => formHandle}>Order</MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+
+        <div className="text-center">
+          <MDBBtn type="submit">Order</MDBBtn>
+        </div>
+      </form>
+    </>
   )
 }
 

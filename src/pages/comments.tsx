@@ -4,7 +4,7 @@ import { MDBCard, MDBCardBody, MDBRow } from "mdbreact"
 import React from "react"
 import { format } from "timeago.js"
 import Layout from "../components/layout"
-import AddComment from "../components/pages/home/addComment"
+import AddComment from "../components/pages/comments/addComment"
 import SEO from "../components/seo"
 
 const CommentsPage = ({ data }) => {
