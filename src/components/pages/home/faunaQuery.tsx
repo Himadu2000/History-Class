@@ -1,7 +1,7 @@
 import { Client, query } from "faunadb"
 
 const adminClient = new Client({
-  secret: "fnAD4Ri0d2ACBr2A0UUmpsf7c_uUwxjK44APAbeg",
+  secret: process.env.GATSBY_FAUNADB_KEY,
 })
 
 export const q = query

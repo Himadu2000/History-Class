@@ -22,8 +22,34 @@ interface props {
   }
 }
 
-const IndexPage = ({ data }) => {
-  const Items = data.allFlamelinkPapersContent.nodes
+interface paper {
+  flamelink_id: string
+  listNumber: string
+  description: string
+  category: {
+    term: string
+    paper: string
+    grade: string
+  }
+  downloadFile: any
+}
+;[]
+
+const Grade11Page = ({ data }: props) => {
+  function toGrade11() {
+    const papers = data.allFlamelinkPapersContent.nodes
+    const sortedPapers = []
+    const grade11Papers = []
+    papers.map((paper, index) => {
+      sortedPapers.push(papers[index])
+    })
+    sortedPapers.map(paper => {
+      if (paper.category.grade == "O/L") {
+        grade11Papers.push(paper)
+      }
+    })
+    return grade11Papers
+  }
 
   return (
     <Layout>
@@ -35,12 +61,14 @@ const IndexPage = ({ data }) => {
             <th>Description</th>
             <th>Download</th>
           </tr>
-          {Items.map((value, index) => (
-            <tr key={value.flamelink_id}>
-              <td>{value.listNumber}</td>
-              <td>{value.description}</td>
+          {toGrade11().map((paper: paper, index) => (
+            <tr key={index}>
+              <td>{index}</td>
+              <td>{paper.description}</td>
               <td>
-                <a href={value.downloadFile.map(v => v.url)}>Open</a>
+                <a href={paper.downloadFile.map((v: { url: string }) => v.url)}>
+                  Open
+                </a>
               </td>
             </tr>
           ))}
@@ -73,4 +101,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default Grade11Page
