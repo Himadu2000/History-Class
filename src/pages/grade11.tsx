@@ -4,6 +4,24 @@ import Layout from "../components/layout"
 import "../components/pages/home/index.sass"
 import SEO from "../components/seo"
 
+interface props {
+  data: {
+    allFlamelinkPapersContent: {
+      nodes: {
+        flamelink_id: string
+        listNumber: string
+        description: string
+        category: {
+          term: string
+          paper: string
+          grade: string
+        }
+        downloadFile: any
+      }[]
+    }
+  }
+}
+
 const IndexPage = ({ data }) => {
   const Items = data.allFlamelinkPapersContent.nodes
 
