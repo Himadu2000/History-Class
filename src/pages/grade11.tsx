@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
             <th>Description</th>
             <th>Download</th>
           </tr>
-          {Items.map(value => (
+          {Items.map((value, index) => (
             <tr key={value.flamelink_id}>
               <td>{value.listNumber}</td>
               <td>{value.description}</td>
