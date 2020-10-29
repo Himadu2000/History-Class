@@ -37,10 +37,10 @@ const Home = () => (
   <>
     <Layout>
       <section className="main">
-        <Link to="/grade 10">
+        <Link to="/grade10">
           <Template title="Grade 10" image={MDBURL} />
         </Link>
-        <Link to="/grade 11">
+        <Link to="/grade11">
           <Template title="Grade 11" image={MDBURL} />
         </Link>
         <Link to="term test">
