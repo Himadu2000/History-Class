@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Himadu Sirimanna <himadusirimanna.1@gmail.com> (https://www/himadu.me)",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "compress-tag": "^2.0.0",
     "faunadb": "^3.0.1",
     "gatsby": "^2.24.60",
