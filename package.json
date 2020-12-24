@@ -47,9 +47,8 @@
     "dev": "cross-env gatsby develop",
     "dev-build": "cross-env gatsby build",
     "build": "cross-env gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "yarn run develop",
+    "format": "prettier --write .",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
