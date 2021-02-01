@@ -23,7 +23,7 @@
     "gatsby-source-graphql": "^2.7.6",
     "gatsby-theme-firebase": "^1.0.10",
     "gatsby-transformer-sharp": "^2.5.15",
-    "html-react-parser": "^0.14.0",
+    "html-react-parser": "^1.2.4",
     "mdbreact": "./src/components/mdbr.tgz",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
