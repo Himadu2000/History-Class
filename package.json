@@ -17,7 +17,7 @@
     "gatsby-plugin-robots-txt": "^1.5.2",
     "gatsby-plugin-sass": "^2.3.13",
     "gatsby-plugin-sharp": "^2.6.36",
-    "gatsby-plugin-sitemap": "^2.4.13",
+    "gatsby-plugin-sitemap": "^3.0.0",
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-source-flamelink": "^3.0.2",
     "gatsby-source-graphql": "^2.7.6",
